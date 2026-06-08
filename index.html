@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ticTak</title>
+    <script type="module" defer src="./src/Ts/main.ts"></script>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div id="starting">
+        <div id="botStarter">
+          <ul id="typeOfGame">
+            <li>
+              <input
+                type="radio"
+                data-type="easy"
+                name="click"
+                id="easy"
+              /><label for="easy">Easy</label>
+            </li>
+            <li>
+              <input
+                checked
+                type="radio"
+                data-type="medium"
+                name="click"
+                id="medium"
+              /><label for="medium">Medium</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                data-type="hard"
+                name="click"
+                id="hard"
+              /><label for="hard">Hard</label>
+            </li>
+          </ul>
+          <button data-action="bot">Play With Bot</button>
+        </div>
+        <button data-action="usr2">Play With Friend</button>
+      </div>
+      <div class="hide" id="rank">
+        <p id="usr">
+          <strong>You</strong>
+          <strong>0</strong>
+        </p>
+        <p id="gameType">
+          <strong>Easy</strong>
+          <strong>VS</strong>
+        </p>
+        <p id="bot">
+          <strong>Bot</strong>
+          <strong>0</strong>
+        </p>
+      </div>
+      <div class="hide" id="container">
+        <div class="box_container">
+          <button data-position="1" class="box"></button>
+          <button data-position="2" class="box"></button>
+          <button data-position="3" class="box"></button>
+        </div>
+        <div class="box_container">
+          <button data-position="4" class="box"></button>
+          <button data-position="5" class="box"></button>
+          <button data-position="6" class="box"></button>
+        </div>
+        <div class="box_container">
+          <button data-position="7" class="box"></button>
+          <button data-position="8" class="box"></button>
+          <button data-position="9" class="box"></button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
