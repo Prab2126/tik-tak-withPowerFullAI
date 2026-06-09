@@ -7,6 +7,13 @@
     <title>ticTak</title>
     <script type="module" defer src="./src/Ts/main.ts"></script>
     <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <main id="app">
@@ -43,37 +50,42 @@
         </div>
         <button data-action="usr2">Play With Friend</button>
       </div>
-      <div class="hide" id="rank">
-        <p id="usr">
-          <strong>You</strong>
-          <strong>0</strong>
-        </p>
-        <p id="gameType">
-          <strong>Easy</strong>
-          <strong>VS</strong>
-        </p>
-        <p id="bot">
-          <strong>Bot</strong>
-          <strong>0</strong>
-        </p>
-      </div>
-      <div class="hide" id="container">
-        <div class="box_container">
-          <button data-position="1" class="box"></button>
-          <button data-position="2" class="box"></button>
-          <button data-position="3" class="box"></button>
+      <section class="hide" id="gameArea">
+        <div id="rank">
+          <p id="usr">
+            <strong>You</strong>
+            <strong>0</strong>
+          </p>
+          <p id="gameType">
+            <strong>Easy</strong>
+            <strong>VS</strong>
+          </p>
+          <p id="bot">
+            <strong>Bot</strong>
+            <strong>0</strong>
+          </p>
         </div>
-        <div class="box_container">
-          <button data-position="4" class="box"></button>
-          <button data-position="5" class="box"></button>
-          <button data-position="6" class="box"></button>
+        <div id="container">
+          <div class="box_container">
+            <button data-position="1" class="box"></button>
+            <button data-position="2" class="box"></button>
+            <button data-position="3" class="box"></button>
+          </div>
+          <div class="box_container">
+            <button data-position="4" class="box"></button>
+            <button data-position="5" class="box"></button>
+            <button data-position="6" class="box"></button>
+          </div>
+          <div class="box_container">
+            <button data-position="7" class="box"></button>
+            <button data-position="8" class="box"></button>
+            <button data-position="9" class="box"></button>
+          </div>
         </div>
-        <div class="box_container">
-          <button data-position="7" class="box"></button>
-          <button data-position="8" class="box"></button>
-          <button data-position="9" class="box"></button>
-        </div>
-      </div>
+        <button aria-label="go back to home" id="homeNavigation">
+          <i class="fa-solid fa-home"></i>
+        </button>
+      </section>
     </main>
   </body>
 </html>

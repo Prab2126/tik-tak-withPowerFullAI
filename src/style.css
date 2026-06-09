@@ -13,6 +13,113 @@
   --ranking-bg: rgb(26, 26, 26);
   --usr-color: rgb(0, 217, 255);
   --bot-color: rgb(255, 0, 0);
+  --home-color: rgb(0 205 255 / 40%);
+}
+
+#gameArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  #homeNavigation {
+    padding: 5px;
+    color: white;
+    background: var(--home-color);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid var(--home-color);
+  }
+
+  #rank {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 250px;
+    background: var(--ranking-bg);
+    color: white;
+    border-radius: 10px;
+    padding: 7px;
+    user-select: none;
+    p {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #usr {
+      color: var(--usr-color);
+    }
+    #gameType {
+      position: relative;
+      text-transform: capitalize;
+      &::after {
+        content: "";
+        position: absolute;
+        background: var(--ranking-bg);
+        border-radius: 10px;
+        top: -14px;
+        z-index: -1;
+        left: 0;
+        width: 100%;
+        height: 30px;
+      }
+    }
+    #bot {
+      color: var(--bot-color);
+      text-transform: capitalize;
+    }
+  }
+
+  #container {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    .box_container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      &:nth-child(2) .box:nth-child(1n) {
+        border: var(--size) solid rgb(255, 255, 255);
+        border-left: none;
+      }
+      &:nth-child(1n) .box:nth-child(3) {
+        border-right: none;
+      }
+    }
+
+    .box {
+      background: none;
+      cursor: pointer;
+      border-right: var(--size) solid rgb(255, 255, 255);
+      .animation {
+        display: block;
+        font-size: 80px;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        transform: scale(0);
+      }
+    }
+    .botBox {
+      color: var(--bot-color);
+    }
+    .usr1Box {
+      color: var(--usr-color);
+    }
+  }
+  .blink {
+    animation: blinking 0.3s ease infinite;
+  }
+  @keyframes blinking {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 .hide {
   display: none !important;
@@ -80,93 +187,4 @@ main {
   flex-direction: column;
   gap: 20px;
   align-items: center;
-}
-#rank {
-  margin: 13px 0 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 250px;
-  background: var(--ranking-bg);
-  color: white;
-  border-radius: 10px;
-  padding: 7px;
-  user-select: none;
-  p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  #usr {
-    color: var(--usr-color);
-  }
-  #gameType {
-    position: relative;
-    text-transform: capitalize;
-    &::after {
-      content: "";
-      position: absolute;
-      background: var(--ranking-bg);
-      border-radius: 10px;
-      top: -14px;
-      z-index: -1;
-      left: 0;
-      width: 100%;
-      height: 30px;
-    }
-  }
-  #bot {
-    color: var(--bot-color);
-    text-transform: capitalize;
-  }
-}
-#container {
-  display: grid;
-  width: 300px;
-  height: 300px;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  .box_container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    &:nth-child(2) .box:nth-child(1n) {
-      border: var(--size) solid rgb(255, 255, 255);
-      border-left: none;
-    }
-    &:nth-child(1n) .box:nth-child(3) {
-      border-right: none;
-    }
-  }
-
-  .box {
-    background: none;
-    cursor: pointer;
-    border-right: var(--size) solid rgb(255, 255, 255);
-    .animation {
-      display: block;
-      font-size: 80px;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-      transform: scale(0);
-    }
-  }
-  .botBox {
-    color: var(--bot-color);
-  }
-  .usr1Box {
-    color: var(--usr-color);
-  }
-}
-.blink {
-  animation: blinking 0.3s ease infinite;
-}
-@keyframes blinking {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
