@@ -2,7 +2,6 @@ import type {
   TTypeOfPlayer,
   ICounterWithElement,
   TTypeOfGame,
-  IHTMLElementUsrWithBot,
 } from "../type/type";
 import {
   buttons,
