@@ -86,6 +86,9 @@ function boxStarter({ target }: Event): void {
       obj.count = 0;
       if (obj.element != null) obj.element.textContent = "0";
     }
+    [...buttons].forEach((element: HTMLButtonElement): void => {
+      if (element.textContent != "") element.textContent = "";
+    });
     const action: string | undefined = target.dataset.action;
     if (action != undefined && (action == "usr2" || action == "bot")) {
       update.gamePlayer(action);
