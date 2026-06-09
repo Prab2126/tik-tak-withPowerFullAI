@@ -8,17 +8,18 @@ const starterBox: HTMLDivElement | null = document.querySelector("#starting");
 const checkBox: NodeListOf<HTMLInputElement> =
   document.querySelectorAll("#typeOfGame input");
 
-const initialHiddenBox: NodeListOf<HTMLDivElement> =
-  document.querySelectorAll(".hide");
 const gameTypeIndicator: Element | undefined =
   document.querySelector("#gameType")?.children[0];
-
+const homeNavigation: HTMLButtonElement | null =
+  document.querySelector("#homeNavigation");
+const gameArea: HTMLElement | null = document.querySelector("#gameArea");
 export {
   container,
   buttons,
   starterBox,
   checkBox,
   usr1Element,
-  initialHiddenBox,
+  homeNavigation,
   gameTypeIndicator,
+  gameArea,
 };

@@ -6,15 +6,27 @@ import {
   update,
   usr2Changes,
 } from "./components/data/data&UpdateData";
-import { container, starterBox } from "./components/dom/selectedDoms";
+import {
+  container,
+  gameArea,
+  homeNavigation,
+  starterBox,
+} from "./components/dom/selectedDoms";
 import { boxStarter, updateUI } from "./components/game/uiUpdater";
+
+homeNavigation?.addEventListener("click", ({ currentTarget }): void => {
+  if (currentTarget instanceof HTMLButtonElement) {
+    gameArea?.classList.toggle("hide");
+    starterBox?.classList.toggle("hide");
+    starterBox?.addEventListener("click", boxStarter);
+  }
+});
 
 container?.addEventListener("click", ({ target }): void => {
   if (target instanceof HTMLButtonElement) {
     const position: number | undefined = Number(target.dataset.position);
     if (gamePlayer === "usr2") {
       updateUI(usr2Changes ? "usr2" : "usr", position);
-
       update.usr2Changes(!usr2Changes);
     } else updateUI("usr", position);
 

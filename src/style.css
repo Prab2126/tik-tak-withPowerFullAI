@@ -109,17 +109,6 @@
       color: var(--usr-color);
     }
   }
-  .blink {
-    animation: blinking 0.3s ease infinite;
-  }
-  @keyframes blinking {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 }
 .hide {
   display: none !important;
@@ -187,4 +176,16 @@ main {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+}
+
+.blink {
+  animation: blinking 0.3s ease infinite;
+}
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

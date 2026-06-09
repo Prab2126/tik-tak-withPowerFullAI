@@ -2,12 +2,13 @@ import type {
   TTypeOfPlayer,
   ICounterWithElement,
   TTypeOfGame,
+  IHTMLElementUsrWithBot,
 } from "../type/type";
 import {
   buttons,
   checkBox,
+  gameArea,
   gameTypeIndicator,
-  initialHiddenBox,
   starterBox,
 } from "../dom/selectedDoms";
 import resetAll from "./reset";
@@ -23,6 +24,7 @@ import bot from "../../../audio/bot.mp3";
 import win from "../../../audio/win.mp3";
 import user from "../../../audio/user.mp3";
 import playSound from "./playSound";
+
 function updateUI(type: TTypeOfPlayer, positionParameter: number): void {
   const target: HTMLButtonElement = buttons[positionParameter - 1];
   uniqueVal.add(positionParameter);
@@ -78,6 +80,12 @@ function updateUI(type: TTypeOfPlayer, positionParameter: number): void {
 
 function boxStarter({ target }: Event): void {
   if (target instanceof HTMLButtonElement) {
+    for (const key in usrBotCount) {
+      const obj: ICounterWithElement =
+        usrBotCount[key as keyof IHTMLElementUsrWithBot];
+      obj.count = 0;
+      if (obj.element != null) obj.element.textContent = "0";
+    }
     const action: string | undefined = target.dataset.action;
     if (action != undefined && (action == "usr2" || action == "bot")) {
       update.gamePlayer(action);
@@ -96,10 +104,8 @@ function boxStarter({ target }: Event): void {
         element.textContent = action === "usr2" ? "Friend" : action;
     }
     starterBox?.removeEventListener("click", boxStarter);
-    starterBox?.classList.add("hide");
-    initialHiddenBox.forEach((value: HTMLDivElement): void =>
-      value.classList.remove("hide"),
-    );
+    starterBox?.classList.toggle("hide");
+    gameArea?.classList.toggle("hide");
     if (gameTypeIndicator != null && action === "bot") {
       gameTypeIndicator.textContent = gameType;
     } else if (gameTypeIndicator != null) {
