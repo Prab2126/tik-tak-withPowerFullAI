@@ -87,7 +87,7 @@ function boxStarter({ target }: Event): void {
       if (obj.element != null) obj.element.textContent = "0";
     }
     [...buttons].forEach((element: HTMLButtonElement): void => {
-      if (element.textContent != "") element.textContent = "";
+      if (element.children.length != 0) element.innerHTML = "";
     });
     const action: string | undefined = target.dataset.action;
     if (action != undefined && (action == "usr2" || action == "bot")) {
