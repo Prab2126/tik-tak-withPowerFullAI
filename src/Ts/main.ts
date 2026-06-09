@@ -5,6 +5,7 @@ import {
   isBlinked,
   update,
   usr2Changes,
+  usrBotCount,
 } from "./components/data/data&UpdateData";
 import {
   container,
@@ -12,13 +13,25 @@ import {
   homeNavigation,
   starterBox,
 } from "./components/dom/selectedDoms";
+import resetAll from "./components/game/reset";
 import { boxStarter, updateUI } from "./components/game/uiUpdater";
+import type {
+  ICounterWithElement,
+  IHTMLElementUsrWithBot,
+} from "./components/type/type";
 
 homeNavigation?.addEventListener("click", ({ currentTarget }): void => {
   if (currentTarget instanceof HTMLButtonElement) {
     gameArea?.classList.toggle("hide");
     starterBox?.classList.toggle("hide");
     starterBox?.addEventListener("click", boxStarter);
+    for (const key in usrBotCount) {
+      const obj: ICounterWithElement =
+        usrBotCount[key as keyof IHTMLElementUsrWithBot];
+      obj.count = 0;
+      if (obj.element != null) obj.element.textContent = "0";
+    }
+    resetAll(0);
   }
 });
 

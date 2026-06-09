@@ -80,15 +80,6 @@ function updateUI(type: TTypeOfPlayer, positionParameter: number): void {
 
 function boxStarter({ target }: Event): void {
   if (target instanceof HTMLButtonElement) {
-    for (const key in usrBotCount) {
-      const obj: ICounterWithElement =
-        usrBotCount[key as keyof IHTMLElementUsrWithBot];
-      obj.count = 0;
-      if (obj.element != null) obj.element.textContent = "0";
-    }
-    [...buttons].forEach((element: HTMLButtonElement): void => {
-      if (element.children.length != 0) element.innerHTML = "";
-    });
     const action: string | undefined = target.dataset.action;
     if (action != undefined && (action == "usr2" || action == "bot")) {
       update.gamePlayer(action);
